@@ -11,10 +11,6 @@ echo "Copying public key to clipboard. Paste it into your Github account ..."
   [[ -f ~/.ssh/id_rsa.pub ]] && cat ~/.ssh/id_rsa.pub | pbcopy
   successfully open https://github.com/account/ssh
 
-echo "Fixing permissions ..."
-  successfully sudo mkdir -p /usr/local
-  successfully sudo chown -R `whoami` /usr/local
-
 echo "Installing Homebrew, a good OS X package manager ..."
   successfully ruby <(curl -fsS https://raw.github.com/mxcl/homebrew/go)
   successfully brew update
@@ -24,13 +20,6 @@ echo "Putting Homebrew location earlier in PATH ..."
 # recommended by brew doctor
 export PATH='/usr/local/bin:$PATH'" >> ~/.zshenv
   successfully source ~/.zshenv
-
-echo "Installing GNU Compiler Collection and dependencies ..."
-  successfully brew tap homebrew/dupes
-  successfully brew install autoconf automake apple-gcc42
-
-echo "Installing system libraries recommended for Ruby ..."
-  successfully brew install gdbm libffi libksba libyaml
 
 echo "Installing Postgres, a good open source relational database ..."
   successfully brew install postgres --no-python
