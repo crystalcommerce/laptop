@@ -5,6 +5,14 @@ CURRENTSHELL=`grep $USER /etc/passwd|cut -d : -f 7`
 
 set -e
 
+if !(command_exists packer);
+  then
+    fancy_echo "Installing packer"
+      (cd packer && makepkg -f && sudo pacman -U packer*.pkg.tar.xz) || bail
+else
+  notice "You're already running packer. You must be good at this!"
+fi
+
 fancy_echo "Updating system packages ..."
   successfully pacman_noconfirm -Syu
 
@@ -23,10 +31,3 @@ else
   notice "You're already running zsh. Good job, buddy!"
 fi
 
-if !(command_exists packer);
-  then
-    fancy_echo "Installing packer"
-      (cd packer && makepkg -f && sudo pacman -U packer*.pkg.tar.xz) || bail
-else
-  notice "You're already running packer. You must be good at this!"
-fi

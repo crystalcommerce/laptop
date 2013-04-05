@@ -1,5 +1,8 @@
 # Things to install on a new box
 
+* sudo
+
+* packer
 * zsh
 * git
 * oh-my-zsh
@@ -7,9 +10,8 @@
 * rvm
 * rvm rubies ree (latest), 1.9.3, 2.0
 * bundler
-* gvim
 * gnome-desktop (?)
-* packer
+* gvim
 * ack
 * arandr
 * ctags
@@ -50,7 +52,6 @@
 * siege
 * apache (for ab)
 * sqlite
-* sudo
 * terminus-font
 * unrar
 * unzip

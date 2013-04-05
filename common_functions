@@ -22,7 +22,7 @@ notice() {
 }
 
 run_pacman() {
-  sudo pacman "$@"
+  sudo packer "$@"
 }
 
 pacman_noconfirm() {
@@ -36,10 +36,14 @@ test_dependencies() {
 
 install_packages() {
   test_dependencies "$@"
-  #pacman_noconfirm -S --needed "$@"
+  pacman_noconfirm -S --needed "$@"
 }
 
 command_exists() {
   which $1 &>/dev/null
   $!
+}
+
+install_ruby() {
+  command rvm install "$@" --autolibs=3 -j 5 
 }
