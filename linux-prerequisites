@@ -19,8 +19,8 @@ pacman_noconfirm() {
 USER=`whoami`
 CURRENTSHELL=`grep $USER /etc/passwd|cut -d : -f 7`
 
-#fancy_echo "Updating system packages ..."
-#  successfully pacman_noconfirm -Syu
+fancy_echo "Updating system packages ..."
+  successfully pacman_noconfirm -Syu
 
 echo "Curent shell: $CURRENTSHELL"
 if [ "$CURRENTSHELL" != "/bin/zsh" ];
