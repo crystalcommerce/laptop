@@ -1,3 +1,11 @@
+# Additional setup steps
+
+* Cloning repositories
+* auto-startup services
+* dropbox configuration (notice?)
+* per-project setup
+
+
 # Things to install on a new box
 
 * sudo

@@ -1,6 +1,7 @@
 CLEAR="\033[0m"
 ORANGE="\033[0;33m"
 GREEN="\033[0;32m"
+SRC_DIR=$HOME/src
 
 bail() {
   (echo "failed" 1>&2 && exit 1)
@@ -46,4 +47,15 @@ command_exists() {
 
 install_ruby() {
   command rvm install "$@" --autolibs=3 -j 5 
+}
+
+clone_git_project() {
+  mkdir -p $SRC_DIR
+  url=$1
+  git clone $url $SRC_DIR
+}
+
+clone_github_project() {
+  project=$1
+  clone_git_project "git@github.com:$project.git"
 }

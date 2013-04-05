@@ -36,10 +36,16 @@ fancy_echo "Installing Ruby 1.9.3 ..."
 fancy_echo "Installing Ruby 2.0 ..."
   successfully install_ruby 2.0
 
-fancy_echo "Setting 1.9.3 as the default"
+fancy_echo "Setting 1.9.3 as the default ..."
   successfully rvm use 1.9.3 --default
 
 fancy_echo "Update to latest Rubygems version ..."
   successfully gem update --system
+
+for repo in admin frontend PointOfSale RoadHouse hive hive-inventory lattice webhook_stopwatch lattice_api_client apidocs
+do
+  fancy_echo "Cloning $repo project ..."
+    successfully clone_git_project crystalcommerce/$repo
+done
 
 notice "You should consult with the senior devs to get vim configured"
