@@ -13,6 +13,9 @@ fancy_echo "Installing oh-my-zsh for the win ..."
   [[ -d ~/.oh-my-zsh ]] || successfully git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
   notice "After install you can configure oh_my_zsh in your .zshrc file"
 
+fancy_echo "Installing google-chrome-beta"
+  successfully install_packages google-chrome-beta
+
 fancy_echo "Copying public key to clipboard. Paste it into your Github account ..."
   [[ -f ~/.ssh/id_rsa.pub ]] && cat ~/.ssh/id_rsa.pub | xclip -selection clipboard
   successfully google-chrome https://github.com/account/ssh
@@ -38,3 +41,5 @@ fancy_echo "Setting 1.9.3 as the default"
 
 fancy_echo "Update to latest Rubygems version ..."
   successfully gem update --system
+
+notice "You should consult with the senior devs to get vim configured"
