@@ -8,25 +8,13 @@ Requirements
 
 ### Mac OS X
 
-1) Install a C compiler.
-
-Use [OS X GCC Installer](https://github.com/kennethreitz/osx-gcc-installer/) for
-Snow Leopard (OS X 10.6).
-
-Use [Command Line Tools for XCode](https://developer.apple.com/downloads/index.action)
-for Lion (OS X 10.7) or Mountain Lion (OS X 10.8).
-
-2) Set zsh as your login shell.
-
-    chsh -s /bin/zsh
+Hell no, we do linux here.
 
 ### Linux
 
 We support:
 
-* The latest Ubuntu LTS release (currently [precise](https://wiki.ubuntu.com/PrecisePangolin/ReleaseNotes)),
-* The latest Ubuntu non-LTS release (currently [quantal](https://wiki.ubuntu.com/QuantalQuetzal/ReleaseNotes)), and
-* Debian testing (currently [wheezy](http://www.debian.org/releases/testing/)).
+* Archlinux (soon)
 
 1) Install zsh and set it as your login shell. Run the script:
 
@@ -37,9 +25,7 @@ Install
 
 ### Mac OS X
 
-Run the script:
-
-    zsh <(curl -s https://raw.github.com/thoughtbot/laptop/master/mac)
+See above
 
 ### Linux
 
