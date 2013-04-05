@@ -2,6 +2,7 @@
 
 * zsh
 * git
+* oh-my-zsh
 * ruby
 * rvm
 * rvm rubies ree (latest), 1.9.3, 2.0

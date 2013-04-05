@@ -1,23 +1,7 @@
-CLEAR="\033[0m"
-ORANGE="\033[33m"
-
-set -e
-
-successfully() {
-  $* || (echo "failed" 1>&2 && exit 1)
-}
-
-fancy_echo() {
-  echo -e ${ORANGE}$1${CLEAR}
-  echo
-}
-
-pacman_noconfirm() {
-  sudo pacman --noconfirm "$@"
-}
-
 USER=`whoami`
 CURRENTSHELL=`grep $USER /etc/passwd|cut -d : -f 7`
+
+. ./common_functions
 
 fancy_echo "Updating system packages ..."
   successfully pacman_noconfirm -Syu
@@ -26,7 +10,7 @@ echo "Curent shell: $CURRENTSHELL"
 if [ "$CURRENTSHELL" != "/bin/zsh" ];
   then
     fancy_echo "Installing zsh ..."
-      successfully pacman_noconfirm -S zsh
+      successfully install_packages zsh
 
     fancy_echo "Changing your shell to zsh ..."
       successfully chsh -s `which zsh`
@@ -34,5 +18,5 @@ if [ "$CURRENTSHELL" != "/bin/zsh" ];
     fancy_echo "Your shell will now restart to apply changes."
       exec `which zsh` -l
 else
-  fancy_echo "You're already running zsh. Good job, buddy!"
+  notice "You're already running zsh. Good job, buddy!"
 fi

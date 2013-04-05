@@ -1,0 +1,36 @@
+CLEAR="\033[0m"
+ORANGE="\033[0;33m"
+GREEN="\033[0;32m"
+
+successfully() {
+  $* || (echo "failed" 1>&2 && exit 1)
+}
+
+fancy_echo() {
+  echo -e ${ORANGE}$1${CLEAR}
+  echo
+}
+
+notice() {
+  notice_border="###################################################"
+  echo -e ${GREEN}$notice_border\\n$1\\n$notice_border${CLEAR}
+  echo
+}
+
+run_pacman() {
+  sudo pacman "$@"
+}
+
+pacman_noconfirm() {
+  run_pacman --noconfirm "$@"
+}
+
+test_dependencies() {
+  fancy_echo "Testing dependencies for $@"
+  successfully run_pacman -T "$@"
+}
+
+install_packages() {
+  test_dependencies "$@"
+  #pacman_noconfirm -S "$@"
+}
