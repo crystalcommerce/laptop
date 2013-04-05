@@ -2,8 +2,12 @@ CLEAR="\033[0m"
 ORANGE="\033[0;33m"
 GREEN="\033[0;32m"
 
+bail() {
+  (echo "failed" 1>&2 && exit 1)
+}
+
 successfully() {
-  $* || (echo "failed" 1>&2 && exit 1)
+  $* || bail
 }
 
 fancy_echo() {
@@ -32,5 +36,10 @@ test_dependencies() {
 
 install_packages() {
   test_dependencies "$@"
-  #pacman_noconfirm -S "$@"
+  #pacman_noconfirm -S --needed "$@"
+}
+
+command_exists() {
+  which $1 &>/dev/null
+  $!
 }

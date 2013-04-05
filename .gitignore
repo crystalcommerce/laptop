@@ -1,1 +1,4 @@
 *.swp
+packer/pkg
+packer/src
+packer/*.pkg.tar.xz

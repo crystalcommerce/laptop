@@ -2,7 +2,7 @@
 . ./common_functions
 
 fancy_echo "Installing git, for source control management ..."
-  successfully install_packages git
+  successfully install_packages git xclip firefox
 
 fancy_echo "Checking for SSH key, generating one if it doesn't exist ..."
   [[ -f ~/.ssh/id_rsa.pub ]] || ssh-keygen -t rsa
@@ -11,10 +11,9 @@ fancy_echo "Installing oh-my-zsh for the win ..."
   [[ -d ~/.oh-my-zsh ]] || successfully git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
   notice "After install you can configure oh_my_zsh in your .zshrc file"
 
-#
-#fancy_echo "Copying public key to clipboard. Paste it into your Github account ..."
-#  [[ -f ~/.ssh/id_rsa.pub ]] && cat ~/.ssh/id_rsa.pub | xclip -selection clipboard
-#  successfully x-www-browser https://github.com/account/ssh
+fancy_echo "Copying public key to clipboard. Paste it into your Github account ..."
+  [[ -f ~/.ssh/id_rsa.pub ]] && cat ~/.ssh/id_rsa.pub | xclip -selection clipboard
+  successfully google-chrome https://github.com/account/ssh
 #
 #fancy_echo "Installing base ruby build dependencies ..."
 #  successfully sudo aptitude build-dep -y ruby1.9.3
